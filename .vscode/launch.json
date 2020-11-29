@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python : Fichier actuel",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["c:/GIT/EIVP/post-32566-EIVP_KM.csv","display", "temp", "2019-08-15 00:00:00+00:00", "2019-08-24 00:00:00+00:00"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
