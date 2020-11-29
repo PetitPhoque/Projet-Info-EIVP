@@ -20,11 +20,11 @@
 
 #  Bilbiothèques à importer
 # - sys
-#   décrire le rôle
+#   Pour les arguments
 # - MathPlotLib
-#   décrire le rôle
+#   Pour les courbes
 # - NumPy
-#   décrire le rôle
+#   Pour les courbes
 # - Pandas
 #   biblothèque pour ouvrir un fichier CSV et le manipuler
 
