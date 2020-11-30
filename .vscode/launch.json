@@ -9,7 +9,8 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["c:/GIT/EIVP/post-32566-EIVP_KM.csv","display", "temp", "2019-08-15 00:00:00+00:00", "2019-08-24 00:00:00+00:00"],
+            "args": ["C:/Users/Renan/Documents/COURS EIVP/Projet Info EIVP/post-32566-EIVP_KM.csv","display", "temp", "2019-08-11 00:00:00+00:00", "2019-08-26 00:00:00+00:00"], 
+            
             "console": "integratedTerminal"
         }
     ]

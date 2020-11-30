@@ -48,7 +48,7 @@ def preparerDonnées(indice, dfData, plt) :
     dfFilteredById = ( dfData[dfData['id'] == indice ])
     variables = dfFilteredById[[variable]]
     dates=dfFilteredById[['sent_at']]
-    print(variables)
+    #print(variables)
     plt.plot(dates,variables, label='id=' + str(indice))
 
 # function affichage variable en fonction du temps
@@ -58,21 +58,36 @@ def displayVariable( variable, startDate, endDate ):
     dfSuperFiltered = ( dfFiltered[dfFiltered['sent_at'] < endDate ])    
 
     import matplotlib.pyplot as plt
-    import numpy as np
+    
 
     preparerDonnées( 1, dfSuperFiltered, plt )
     preparerDonnées( 2, dfSuperFiltered , plt)
     preparerDonnées( 3, dfSuperFiltered , plt)
     preparerDonnées( 4, dfSuperFiltered, plt )
 
-    plt.show()
+    #plt.show()
 
 
 # function valeurs statistiques 
+def statistique (variable):
+    min = dfMeasures[variable].min()
+    max = dfMeasures[variable].max()
+    moyenne = dfMeasures[variable].mean()
+    median = dfMeasures[variable].median()
+    var = dfMeasures[variable].var()
+    ecarttype = dfMeasures[variable].std() 
+    print (min , max , moyenne , median , var , ecarttype)
 
 # function calcul humidex
+def humidexCalcul (variableTemp , variableHumidity):
+    import math
+    import numpy as np
+    rose = (237.7*17.27*variableTemp/(237.7+variableTemp)+np.log(variableHumidity))/(17.27-17.27*variableTemp/(237.7+variableTemp)+np.log(variableHumidity))  
+    humidex = variableTemp + 0.5555*(6.11*math.exp(5417.7530*(1/273.16-1/(273.15+rose)))-10) 
+    print(humidex)
+    return humidex
 
-# function calcul indice de corrélation cople de varialbes
+# function calcul indice de corrélation cople de variables
 
 
 # Vérification des arguments
@@ -128,9 +143,9 @@ if action == 'display':
     # { 'noise', 'temp', 'humidity', 'lum', 'co2' }
     displayVariable( variable, startDate, endDate )
 elif action == 'statistique':
-    print(action)
+    statistique( variable ) 
 elif action ==  'humidex':
-    print( action)
+    humidexCalcul(
 else:
     print( "L'argument action n'a pas une valeur attendu ! " + action )
     Usage()

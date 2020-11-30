@@ -5,4 +5,5 @@
 pip install numpy
 pip install pandas
 pip install matplotlib
-pip install timezone
+pip install datetime
+pip install tzdata
