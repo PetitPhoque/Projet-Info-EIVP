@@ -508,7 +508,7 @@ l_tab=np.array([l12_moy,l13_moy,l14_moy,l15_moy,l16_moy,l23_moy,l24_moy,l25_moy,
 
 #taux de CO2
 
-c12_moy=moyenne(carb_norm[0]) #
+c12_moy=moyenne(carb_norm[0]) 
 c13_moy=moyenne(carb_norm[1])
 c14_moy=moyenne(carb_norm[2])
 c15_moy=moyenne(carb_norm[3])
