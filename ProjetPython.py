@@ -649,6 +649,8 @@ plt.plot(x6,y6,"pink")
 
 """
 
+#indice de corrélation 
+
 def cov(a,b):
     sum = 0
     n=min(len(a),len(b))
