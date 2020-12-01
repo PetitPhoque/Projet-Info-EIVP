@@ -48,7 +48,7 @@ def preparerDonnées(indice, dfData, plt) :
     dfFilteredById = ( dfData[dfData['id'] == indice ])
     variables = dfFilteredById[[variable]]
     dates=dfFilteredById[['sent_at']]
-    #print(variables)
+    print(variables)
     plt.plot(dates,variables, label='id=' + str(indice))
 
 # function affichage variable en fonction du temps
@@ -59,13 +59,9 @@ def displayVariable( variable, startDate, endDate ):
 
     import matplotlib.pyplot as plt
     
-
-    preparerDonnées( 1, dfSuperFiltered, plt )
-    preparerDonnées( 2, dfSuperFiltered , plt)
-    preparerDonnées( 3, dfSuperFiltered , plt)
-    preparerDonnées( 4, dfSuperFiltered, plt )
-
-    #plt.show()
+    for i in range(1,6):
+        preparerDonnées( i, dfSuperFiltered, plt )
+    plt.show()
 
 
 # function valeurs statistiques 
@@ -73,20 +69,20 @@ def statistique (variable):
     min = dfMeasures[variable].min()
     max = dfMeasures[variable].max()
     moyenne = dfMeasures[variable].mean()
-    median = dfMeasures[variable].median()
+    mediane = dfMeasures[variable].median()
     var = dfMeasures[variable].var()
     ecarttype = dfMeasures[variable].std() 
-    print (min , max , moyenne , median , var , ecarttype)
+    print (min , max , ecarttype , moyenne , var , mediane)
 
 # function calcul humidex
 def humidexCalcul (variableTemp , variableHumidity):
     import math
     import numpy as np
-    rose = (237.7*17.27*variableTemp/(237.7+variableTemp)+np.log(variableHumidity))/(17.27-17.27*variableTemp/(237.7+variableTemp)+np.log(variableHumidity))  
-    humidex = variableTemp + 0.5555*(6.11*math.exp(5417.7530*(1/273.16-1/(273.15+rose)))-10) 
-    print(humidex)
-    return humidex
-
+    dfMeasures['humidex']=  dfMeasures[variableTemp] + 0.5555*(6.11*math.exp(5417.7530*(1/273.16-1/(273.15+(237.7*17.27*dfMeasures[variableTemp]/(237.7+dfMeasures[variableTemp])+np.log(dfMeasures[variableHumidity]))/(17.27-17.27*dfMeasures[variableTemp]/(237.7+dfMeasures[variableTemp])+np.log(dfMeasures[variableHumidity])))))-10)
+    displayVariable("humidex", startDate, endDate)
+    
+#rose = (237.7*17.27*variableTemp/(237.7+variableTemp)+np.log(variableHumidity))/(17.27-17.27*variableTemp/(237.7+variableTemp)+np.log(variableHumidity))  
+#humidex = variableTemp + 0.5555*(6.11*math.exp(5417.7530*(1/273.16-1/(273.15+rose)))-10) 
 # function calcul indice de corrélation cople de variables
 
 
@@ -145,14 +141,13 @@ if action == 'display':
 elif action == 'statistique':
     statistique( variable ) 
 elif action ==  'humidex':
-    humidexCalcul(
+    # Il faut ajouter une fonction qui va ajouter une colonne avec une valeur calculé nommé Humidex au DataFrame 
+    # Appeler displayVariable( "Humidex", startDate, endDate ) 
+    humidexCalcul(variable,dfMeasures["humidity"])
 else:
     print( "L'argument action n'a pas une valeur attendu ! " + action )
     Usage()
     exit()
-
-
-
 
 
 

@@ -5,11 +5,38 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python : Fichier actuel",
+            "name": "Python : display temp",
             "type": "python",
             "request": "launch",
             "program": "${file}",
             "args": ["C:/Users/Renan/Documents/COURS EIVP/Projet Info EIVP/post-32566-EIVP_KM.csv","display", "temp", "2019-08-11 00:00:00+00:00", "2019-08-26 00:00:00+00:00"], 
+            
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python : display humidity",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["C:/Users/Renan/Documents/COURS EIVP/Projet Info EIVP/post-32566-EIVP_KM.csv","display", "humidity", "2019-08-11 00:00:00+00:00", "2019-08-26 00:00:00+00:00"], 
+            
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python : statistique temp",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["C:/Users/Renan/Documents/COURS EIVP/Projet Info EIVP/post-32566-EIVP_KM.csv","statistique", "temp", "2019-08-11 00:00:00+00:00", "2019-08-26 00:00:00+00:00"], 
+            
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python : Humidex",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["C:/Users/Renan/Documents/COURS EIVP/Projet Info EIVP/post-32566-EIVP_KM.csv","humidex", "temp", "2019-08-11 00:00:00+00:00", "2019-08-26 00:00:00+00:00"], 
             
             "console": "integratedTerminal"
         }
