@@ -528,10 +528,10 @@ c56_moy=moyenne(carb_norm[14])
 c_tab=np.array([c12_moy,c13_moy,c14_moy,c15_moy,c16_moy,c23_moy,c24_moy,c25_moy,c26_moy,c34_moy,c35_moy,c36_moy,c45_moy,c46_moy,c56_moy])
 
 
-#on fixe un seuil s=0,25. Si la moyenne est supérieure à ce seuil, on considère que les capteurs ne sont pas considérés comme étant similaires par rapport à cette variable
+#on fixe un seuil s=0,20. Si la moyenne est supérieure à ce seuil, on considère que les capteurs ne sont pas considérés comme étant similaires par rapport à cette variable
 
 def verdict(m): #ce programme prend en argument la moyenne des distances normées entre deux capteurs pour une donnée précise 
-    s=float(0.25) #on définit un seuil 
+    s=float(0.20) #on définit un seuil 
     if m>s:
         print('Les deux capteurs ne sont pas similaires par rapport à cette donnée') #dans le cas où la moyenne est supérieure au seuil fixé
     else : 
