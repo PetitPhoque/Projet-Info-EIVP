@@ -367,7 +367,7 @@ carb_c5c6=difference(carb_c5,carb_c6)
 #On calcule le maximum et le minimum de chaque variable et on normalise les listes 
 
 
-def normalise2(L): #L est la liste obtenue après le programme concat
+def normalise2(L): #L est la liste dont les sous-listes sont toutes les distances entre les différents capteurs issues du programme difference
     n=min(len(L[i]) for i in range(len(L)))#on prend la plus petite longueur de sous-listes 
     for k in range(len(L)):
         del L[k][n:len(L[k])]
